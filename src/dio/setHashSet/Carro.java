@@ -2,8 +2,20 @@ package dio.setHashSet;
 
 import java.util.Objects;
 
-public class Carro {
+// classe Carro implementando Comparable para comparar os objetos seguido de compareto
+public class Carro implements Comparable<Carro>{
 	
+	// metodo compareto da implementacao comparable que compara os objetos e define onde sera alocado pela logica passada.
+	@Override
+	public int compareTo(Carro o) { // compara se uma marca e maior que a outra e aloca conforme o tamnho das Strings implementando valor -1, 1, 0.
+		if(this.marca.length() < o.marca.length()) {
+			return -1;
+		} else if (this.marca.length() > o.marca.length()) {
+			return 1;
+		}
+		return 0; // os retornos numericos aloca as marcas em ordem de comparacao.
+	}
+
 	String marca;
 	
 	public Carro(String marca) {
@@ -39,5 +51,6 @@ public class Carro {
 	public String toString() {
 		return "Carro [marca=" + marca + "]";
 	}
+	
 	
 }
